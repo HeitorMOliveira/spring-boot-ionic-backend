@@ -9,5 +9,10 @@ class CursomcApplicationTests {
 	@Test
 	void contextLoads() {
 	}
+	
+	@Test
+	public void retornaCategoria() {
+		
+	}
 
 }

@@ -1,11 +1,14 @@
 package com.heitor.cursomc.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Categoria implements Serializable{
@@ -15,6 +18,9 @@ public class Categoria implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer ID;
 	private String nome;
+	
+	@ManyToMany(mappedBy="categorias")
+	private List<Produto> produtos = new ArrayList<>();
 
 	public Categoria(Integer iD, String nome) {
 		ID = iD;
@@ -24,12 +30,12 @@ public class Categoria implements Serializable{
 	public Categoria() {
 	}
 
-	public String getName() {
+	public String getNome() {
 		return nome;
 	}
 
-	public void setName(String name) {
-		this.nome = name;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public Integer getID() {
@@ -38,6 +44,14 @@ public class Categoria implements Serializable{
 
 	public void setID(Integer iD) {
 		ID = iD;
+	}
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
 	}
 
 	@Override
