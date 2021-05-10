@@ -13,10 +13,10 @@ import com.heitor.cursomc.services.exceptions.ObjectNotFoundException;
 public class PedidoService {
 
 	@Autowired
-	private PedidoRepository categoriaRepository;
+	private PedidoRepository pedidoRepository;
 
 	public Pedido find(Integer id) {
-		Optional<Pedido> obj = categoriaRepository.findById(id);
+		Optional<Pedido> obj = pedidoRepository.findById(id);
 		
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 		"Objeto não encontrado! Id: " + id + ", Tipo: " + Pedido.class.getName()));
