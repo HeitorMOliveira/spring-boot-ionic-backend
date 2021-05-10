@@ -71,12 +71,17 @@ public class CursomcApplication implements CommandLineRunner {
 		// Criação das categorias e produtos
 		Categoria cat1 = new Categoria(null, "Informática");
 		Categoria cat2 = new Categoria(null, "Escritório");
+		Categoria cat3 = new Categoria(null, "Cama mesa e banho");
+		Categoria cat4 = new Categoria(null, "Eletrônicos");
+		Categoria cat5 = new Categoria(null, "Jardinagem");
+		Categoria cat6 = new Categoria(null, "Decoração");
+		Categoria cat7 = new Categoria(null, "Perfumaria");
 
 		Produto p1 = new Produto(null, "Computador", 2000.00);
 		Produto p2 = new Produto(null, "impressora", 800.00);
 		Produto p3 = new Produto(null, "Mouse", 80.00);
 
-		cat1.getProdutos().addAll(Arrays.asList(p1, p2, p3));
+		categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6, cat7));
 		cat2.getProdutos().addAll(Arrays.asList(p2));
 
 		p1.getCategorias().addAll(Arrays.asList(cat1));
